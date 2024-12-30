@@ -1,0 +1,23 @@
+		MOV		R0, #6 ; input
+		MOV		R1, #1 ; output will be stored in R1
+		MOV		R2, R0
+WHILE
+		CMP		R2, #0
+		BEQ		DONE
+		MOV		R5, R1
+		MOV		R6, R2
+		MOV		R7, #0
+		B		MUL
+LOOP
+		MOV		R1, R7
+		SUB		R2, R2, #1
+		B		WHILE
+MUL
+		CMP		R6, #0
+		BEQ		LOOP
+		ADD		R7, R7, R5
+		SUB		R6, R6, #1
+		B		MUL
+DONE
+		MOV		R5, #0
+		MOV		R7, #0
