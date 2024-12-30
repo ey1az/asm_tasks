@@ -1,0 +1,15 @@
+NUMS		DCD		-5, 0, -1, 6, 18, -8, 29 ; array
+		ADR		R3, NUMS
+		LDR		R0, [R3] ; first element of the array
+		MOV		R1, #7 ; length
+		MOV		R2, #1 ; minimum of the array will be stored in R2
+		
+LOOP
+		CMP		R1, #0
+		BEQ		DONE
+		CMP		R0, R2
+		MOVLT	R2, R0
+		LDR		R0, [R3], #4
+		SUB		R1, R1, #1
+		B		LOOP
+DONE
