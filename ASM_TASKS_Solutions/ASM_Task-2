@@ -1,0 +1,10 @@
+		MOV		R10, #4 ; first input
+		MOV		R11, #3 ; second input
+		MOV		R12, #0 ; output will be stored in R12
+LOOP
+		CMP		R11, #0
+		BEQ		DONE
+		ADD		R12, R12, R10
+		SUB		R11, R11, #1
+		B		LOOP
+DONE
